@@ -22,7 +22,7 @@ class ZhuanzibanCinemaSpier(scrapy.Spider):
     # }
 
     def parse(self, response):
-        html = response.body.decode()
+        html = response.body.decode().encode("utf-8")
         selector = Selector(text=html)
         movie_group = selector.xpath('//html/body/div')
         for movie_item in movie_group:
