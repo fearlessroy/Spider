@@ -1,10 +1,10 @@
-# -*- coding:utf-8-*-
+# -*- coding: utf-8 -*-
 import datetime
 
 import scrapy
 from scrapy.selector import Selector
 
-from scrapy_spiders.items import ZhuanzibanCinemaItem
+from scrapy_spiders.items.zhuanziban_cinema_items import ZhuanzibanCinemaItem
 
 
 class ZhuanzibanCinemaSpier(scrapy.Spider):
@@ -13,7 +13,8 @@ class ZhuanzibanCinemaSpier(scrapy.Spider):
     # start_urls = ['http://111.205.151.7/cine_groups/{0}-{1}-{2}'.format(datetime.datetime.now().year,
     #                                                                     datetime.datetime.now().month,
     #                                                                     datetime.datetime.now().day)]
-    start_urls=['http://111.205.151.7/cine_groups/2017-01-01']
+    start_urls = ['http://111.205.151.7/cine_groups/2017-01-01']
+
     # custom_settings = {
     #     'SCHEDULER': "scrapy.core.scheduler.Scheduler",
     #     'ITEM_PIPELINES': {
