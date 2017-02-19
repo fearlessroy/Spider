@@ -1,10 +1,10 @@
-# -*- coding:utf-8-*-
+# -*- coding: utf-8 -*-
 import datetime
 
 import scrapy
 from scrapy.selector import Selector
 
-from scrapy_spiders.items import ZhuanzibanCinemaItem
+from scrapy_spiders.items.zhuanziban_cinema_items import ZhuanzibanCinemaItem
 
 
 class ZhuanzibanCinemaSpier(scrapy.Spider):

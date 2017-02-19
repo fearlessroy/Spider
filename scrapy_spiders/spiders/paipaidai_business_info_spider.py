@@ -1,9 +1,11 @@
-# -*- encoding = utf-8 -*-
+# -*- coding: utf-8 -*-
 from scrapy import Spider
 from scrapy.selector import Selector
 
 from scrapy_spiders.items.paipaidai_items import PaipaidaiBusinessItems, PaipaidaiRainbowInfo, PaipaidaiPaihuobaoInfo, \
     PaipaidaiYueuezhangInfo
+
+
 # from palmutil.time_util import get_current_timestamp_str
 
 
@@ -11,6 +13,7 @@ class PaipaidaiBusinessInfoSpider(Spider):
     name = "paipaidai_business"
     start_urls = ['http://product.invest.ppdai.com/', 'http://invest.ppdai.com/product/rainbow',
                   'http://www.ppdai.com/', 'http://rise.invest.ppdai.com/#0']
+
     #
     # custom_settings = {
     #     'SCHEDULER': "scrapy.core.scheduler.Scheduler",
@@ -28,7 +31,7 @@ class PaipaidaiBusinessInfoSpider(Spider):
             paihuobaoinfo['annualized_rate_of_return'] = selector.xpath(
                 '/html/body/div[3]/div[1]/div[1]/div/div[1]/p[3]/text()').extract_first()
             paihuobaoinfo['aucumulated_investment'] = int(
-                selector.xpath('/html/body/div[3]/div[1]/div[2]/div/div[1]/p/span/text()').extract_first().replace(u'¥',
+                selector.xpath('/html/body/div[3]/div[1]/div[2]/div/div[1]/p/span/text()').extract_first().replace('¥',
                                                                                                                    '').replace(
                     ',', '').strip())
             paihuobaoinfo['total_invest_users'] = int(
@@ -48,7 +51,7 @@ class PaipaidaiBusinessInfoSpider(Spider):
                 selector.xpath('//*[@id="r2"]/text()').extract_first().replace(',', ''))
             paipaidairainbowinfo['rainbow_profit'] = int(
                 selector.xpath('//*[@id="r3"]/text()').extract_first().replace(',', ''))
-            paipaidairainbowinfo['crawl_date'] = today
+            # paipaidairainbowinfo['crawl_date'] = today
             # yield paipaidairainbowinfo
             print(paipaidairainbowinfo)
         elif "rise" in response.url:
@@ -74,7 +77,7 @@ class PaipaidaiBusinessInfoSpider(Spider):
             paipaidaiyueyuezhang['aucumulated_profit'] = float(
                 selector.xpath('/html/body/div[3]/div[1]/div[2]/div/div[3]/p/span/text()').extract_first().replace('¥',
                                                                                                                    ''))
-            paipaidaiyueyuezhang['crawl_date'] = today
+            # paipaidaiyueyuezhang['crawl_date'] = today
             # yield paipaidaiyueyuezhang
             print(paipaidaiyueyuezhang)
         else:
@@ -87,6 +90,6 @@ class PaipaidaiBusinessInfoSpider(Spider):
                 '/html/body/div[3]/div[1]/div[2]/div[1]/div/div/div[2]/p[3]/text()').extract_first().replace(',',
                                                                                                              '').replace(
                 '万', '')) * 10000)
-            paipaidai_business_item['crawl_date'] = today
+            # paipaidai_business_item['crawl_date'] = today
             # yield paipaidai_business_item
             print(paipaidai_business_item)

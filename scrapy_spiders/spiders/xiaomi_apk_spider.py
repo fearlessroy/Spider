@@ -1,4 +1,4 @@
-# -*-coding=utf-8-*-
+# -*- coding: utf-8 -*-
 # 使用requests获取网页源代码
 import requests
 import re
