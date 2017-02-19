@@ -2,9 +2,9 @@
 from scrapy import Spider
 from scrapy.selector import Selector
 
-from crawler.items.paipaidai_items import PaipaidaiBusinessItems, PaipaidaiRainbowInfo, PaipaidaiPaihuobaoInfo, \
+from scrapy_spiders.items.paipaidai_items import PaipaidaiBusinessItems, PaipaidaiRainbowInfo, PaipaidaiPaihuobaoInfo, \
     PaipaidaiYueuezhangInfo
-from palmutil.time_util import get_current_timestamp_str
+# from palmutil.time_util import get_current_timestamp_str
 
 
 class PaipaidaiBusinessInfoSpider(Spider):
@@ -20,7 +20,7 @@ class PaipaidaiBusinessInfoSpider(Spider):
     # }
 
     def parse(self, response):
-        today = get_current_timestamp_str("Asia/Shanghai")
+        # today = get_current_timestamp_str("Asia/Shanghai")
         html = response.text
         selector = Selector(text=html)
         if "product.invest" in response.url:
@@ -37,7 +37,7 @@ class PaipaidaiBusinessInfoSpider(Spider):
                 selector.xpath('/html/body/div[3]/div[1]/div[2]/div/div[3]/p/span/text()').extract_first().replace('¥',
                                                                                                                    '').replace(
                     ',', '').strip())
-            paihuobaoinfo['crawl_date'] = today
+            # paihuobaoinfo['crawl_date'] = today
             # yield paihuobaoinfo
             print(paihuobaoinfo)
         elif "rainbow" in response.url:
