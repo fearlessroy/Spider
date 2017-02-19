@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b2f89e3-fc44-4a94-aeb0-0719528fe4ae" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scrapy_spiders/spiders/xiaomi_apk_spider.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scrapy_spiders/spiders/paipaidai_business_info_spider.py" afterPath="$PROJECT_DIR$/scrapy_spiders/spiders/paipaidai_business_info_spider.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scrapy_spiders/spiders/xiaomi_apk_spider.py" afterPath="$PROJECT_DIR$/scrapy_spiders/spiders/xiaomi_apk_spider.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scrapy_spiders/spiders/zhuanziban_cinema_info.py" afterPath="$PROJECT_DIR$/scrapy_spiders/spiders/zhuanziban_cinema_info.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,10 +30,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="items.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="items.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scrapy_spiders/items.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
+            <state relative-caret-position="627">
               <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
@@ -41,8 +43,8 @@
       <file leaf-file-name="zhuanziban_cinema_info.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scrapy_spiders/spiders/zhuanziban_cinema_info.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="24" column="51" lean-forward="false" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
+            <state relative-caret-position="576">
+              <caret line="24" column="30" lean-forward="true" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
               <folding>
                 <element signature="e#22#37#0" expanded="true" />
               </folding>
@@ -53,19 +55,23 @@
       <file leaf-file-name="paipaidai_business_info_spider.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scrapy_spiders/spiders/paipaidai_business_info_spider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="30" column="116" lean-forward="false" selection-start-line="30" selection-start-column="116" selection-end-line="30" selection-end-column="116" />
-              <folding />
+            <state relative-caret-position="256">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding>
+                <element signature="e#27#52#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="xiaomi_apk_spider.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="xiaomi_apk_spider.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scrapy_spiders/spiders/xiaomi_apk_spider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
-              <caret line="62" column="10" lean-forward="true" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
-              <folding />
+            <state relative-caret-position="61">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding>
+                <marker date="1487491058153" expanded="true" signature="1163:1584" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,9 +103,9 @@
       <list>
         <option value="$PROJECT_DIR$/scrapy_spiders/items.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/scrapy_spiders/spiders/xiaomi_apk_spider.py" />
         <option value="$PROJECT_DIR$/scrapy_spiders/spiders/zhuanziban_cinema_info.py" />
         <option value="$PROJECT_DIR$/scrapy_spiders/spiders/paipaidai_business_info_spider.py" />
-        <option value="$PROJECT_DIR$/scrapy_spiders/spiders/xiaomi_apk_spider.py" />
       </list>
     </option>
   </component>
@@ -124,6 +130,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -171,7 +178,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -336,7 +342,7 @@
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14844163" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14791337" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -381,6 +387,60 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scrapy_spiders/spiders/zhuanziban_cinema_info.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="768">
+          <caret line="24" column="51" lean-forward="false" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
+          <folding>
+            <element signature="e#22#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapy_spiders/spiders/paipaidai_business_info_spider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="30" column="116" lean-forward="false" selection-start-line="30" selection-start-column="116" selection-end-line="30" selection-end-column="116" />
+          <folding>
+            <element signature="e#27#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapy_spiders/spiders/xiaomi_apk_spider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1487491058153" expanded="true" signature="1163:1584" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2816">
+          <caret line="88" column="12" lean-forward="false" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapy.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapy_spiders/items.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapy_spiders/spiders/zhuanziban_cinema_info.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
           <caret line="24" column="51" lean-forward="false" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
           <folding>
@@ -393,7 +453,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#27#52#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -435,7 +497,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#27#52#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -557,14 +621,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scrapy_spiders/items.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2816">
@@ -573,10 +629,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scrapy_spiders/spiders/xiaomi_apk_spider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <marker date="1487491058153" expanded="true" signature="1163:1584" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scrapy_spiders/spiders/zhuanziban_cinema_info.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="24" column="51" lean-forward="false" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
+        <state relative-caret-position="576">
+          <caret line="24" column="30" lean-forward="true" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
           <folding>
             <element signature="e#22#37#0" expanded="true" />
           </folding>
@@ -585,16 +651,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scrapy_spiders/spiders/paipaidai_business_info_spider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="30" column="116" lean-forward="false" selection-start-line="30" selection-start-column="116" selection-end-line="30" selection-end-column="116" />
-          <folding />
+        <state relative-caret-position="256">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#27#52#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scrapy_spiders/spiders/xiaomi_apk_spider.py">
+    <entry file="file://$PROJECT_DIR$/scrapy_spiders/items.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="62" column="10" lean-forward="true" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
+        <state relative-caret-position="627">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>

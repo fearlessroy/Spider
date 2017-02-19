@@ -28,7 +28,7 @@ class PaipaidaiBusinessInfoSpider(Spider):
             paihuobaoinfo['annualized_rate_of_return'] = selector.xpath(
                 '/html/body/div[3]/div[1]/div[1]/div/div[1]/p[3]/text()').extract_first()
             paihuobaoinfo['aucumulated_investment'] = int(
-                selector.xpath('/html/body/div[3]/div[1]/div[2]/div/div[1]/p/span/text()').extract_first().replace(r'¥',
+                selector.xpath('/html/body/div[3]/div[1]/div[2]/div/div[1]/p/span/text()').extract_first().replace(u'¥',
                                                                                                                    '').replace(
                     ',', '').strip())
             paihuobaoinfo['total_invest_users'] = int(

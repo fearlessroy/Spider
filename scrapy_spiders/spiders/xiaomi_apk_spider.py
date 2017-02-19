@@ -50,12 +50,10 @@ print(len(link))
 j = 0
 for each in link:
     url01 = 'http://app.mi.com' + each
-    print(url01)
     html02 = requests.get(url01)
     html02.encoding = 'utf-8'
     download = re.findall('class="app-info-down"><a href="(.*?)" class="download">', html02.text, re.S)
     url02 = 'http://app.mi.com' + download[0]
-    print(url02)
     load01 = requests.get(url02)
     fp = open('load01\\' + str(j) + '.apk', 'wb')
     fp.write(load01.content)
