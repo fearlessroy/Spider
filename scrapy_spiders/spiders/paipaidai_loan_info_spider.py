@@ -3,10 +3,10 @@ import logging
 import re
 
 from scrapy import Selector
-from palmutil.logger_util import JarvisLogger
-from crawler.items.paipaidai_items import PaipaidaiLoanInfo
+# from palmutil.logger_util import JarvisLogger
+from scrapy_spiders.items.paipaidai_items import PaipaidaiLoanInfo
 from my_scrapy_redis.spiders import RedisSpider
-from palmutil.time_util import get_current_timestamp_str
+# from palmutil.time_util import get_current_timestamp_str
 
 
 class PaipaidaiLoanInfoSpider(RedisSpider):
@@ -32,7 +32,7 @@ class PaipaidaiLoanInfoSpider(RedisSpider):
 
     def __init__(self):
         super().__init__()
-        self.jarvis_logger = JarvisLogger(filename="paipaidai_loan_info_spider.log", level=logging.DEBUG)
+        # self.jarvis_logger = JarvisLogger(filename="paipaidai_loan_info_spider.log", level=logging.DEBUG)
 
     def parse(self, response):
         try:
@@ -46,7 +46,7 @@ class PaipaidaiLoanInfoSpider(RedisSpider):
             loaninfo['failed_times'] = int(re.search(r'｜(.*?)次流标', html).group(1)) if re.search(r'>(.*?)次成功',
                                                                                                 html) else -1
             loaninfo['credit_rank'] = re.search(r'creditRating(.*?)">', html).group(1).strip()
-            loaninfo['crawl_date'] = get_current_timestamp_str("Asia/Shanghai")
+            # loaninfo['crawl_date'] = get_current_timestamp_str("Asia/Shanghai")
             yield loaninfo
         except Exception as e:
             self.jarvis_logger.exception(e=e)
