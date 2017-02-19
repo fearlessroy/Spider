@@ -5,8 +5,8 @@ import time
 
 from scrapy import Spider, Request, Selector
 
-from crawler.items.paipaidai_items import PaipaidaiLinkItem
-from palmutil.logger_util import JarvisLogger
+from scrapy_spiders.items.paipaidai_items import PaipaidaiLinkItem
+# from palmutil.logger_util import JarvisLogger
 
 
 class PaipaipaiLinksSpider(Spider):
