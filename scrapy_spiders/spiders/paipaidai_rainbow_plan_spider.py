@@ -68,5 +68,4 @@ class PaipaidaiRainbowPlanSpider(Spider):
                 '投资收益日：', '')
             # rainbowitem['crawl_date'] = get_current_timestamp_str("Asia/Shanghai")
             rainbowitem['source_url'] = response.url
-            # yield rainbowitem
-            print(rainbowitem)
+            yield rainbowitem
