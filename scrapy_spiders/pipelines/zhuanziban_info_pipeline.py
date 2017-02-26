@@ -1,4 +1,4 @@
-from crawler.pipelines.base_pipeline import BasePipeline
+from scrapy_spiders.pipelines.base_pipeline import BasePipeline
 from orm.models.zhuanziban import ZhuanzibanCinema
 
 

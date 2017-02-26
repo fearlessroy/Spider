@@ -1,6 +1,6 @@
 # from scrapy.log import logger
 #
-# from palmutil.request_proxy_ip import get_proxy_ip_from_server
+# from utils.request_proxy_ip import get_proxy_ip_from_server
 #
 #
 # class RandomProxy(object):

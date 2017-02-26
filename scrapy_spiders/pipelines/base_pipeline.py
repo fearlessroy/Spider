@@ -1,5 +1,5 @@
 from palmutil.db_operation import BaseDB
-from palmutil.logger_util import JarvisLogger
+# from palmutil.logger_util import JarvisLogger
 
 
 class BasePipeline(object):
@@ -7,7 +7,7 @@ class BasePipeline(object):
         self.batch = []
         self.batch_process_number = batch_process_number
         self.use_mysql = use_mysql
-        self.jarvis_logger = JarvisLogger(filename=jarvis_logger_filename)
+        # self.jarvis_logger = JarvisLogger(filename=jarvis_logger_filename)
         self.db_instance = BaseDB.from_config('config/env.cfg', use_mysql=self.use_mysql)
 
     def open_spider(self, spider):

@@ -6,6 +6,7 @@ import logging
 
 logger = logging.getLogger('get_proxy_ip_from_server')
 # URL = 'http://54.222.194.154:10001'
+URL = ''
 
 
 def get_proxy_ip_from_server():

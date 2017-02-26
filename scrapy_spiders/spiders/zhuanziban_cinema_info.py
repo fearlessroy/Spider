@@ -15,12 +15,12 @@ class ZhuanzibanCinemaSpier(scrapy.Spider):
     #                                                                     datetime.datetime.now().day)]
     start_urls = ['http://111.205.151.7/cine_groups/2017-01-01']
 
-    # custom_settings = {
-    #     'SCHEDULER': "scrapy.core.scheduler.Scheduler",
-    #     'ITEM_PIPELINES': {
-    #         'crawler.pipelines.zhuanziban_info_redshift_pipeline.ZhuanzibanCinemaPipeline': 400
-    #     }
-    # }
+    custom_settings = {
+        'SCHEDULER': "scrapy.core.scheduler.Scheduler",
+        'ITEM_PIPELINES': {
+            'scrapy_spiders.pipelines.zhuanziban_info_redshift_pipeline.ZhuanzibanCinemaPipeline': 400
+        }
+    }
 
     def parse(self, response):
         html = response.body.decode().encode("utf-8")
@@ -48,5 +48,4 @@ class ZhuanzibanCinemaSpier(scrapy.Spider):
                     movie_item.xpath('table/tbody/tr[{0}]/td[5]/text()'.format(i)).extract_first().replace(',', ''))
                 item['online_sales_percent'] = movie_item.xpath(
                     'table/tbody/tr[{0}]/td[5]/i/text()'.format(i)).extract_first()
-                # yield item
-                print(item)
+                yield item
