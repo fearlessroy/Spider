@@ -1,0 +1,5 @@
+# For localhost only
+
+CREATE USER palm@'%' IDENTIFIED BY 'Palmtech001';
+
+grant all on *.* to palm@'%' IDENTIFIED by 'Palmtech001';

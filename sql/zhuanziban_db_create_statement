@@ -1,0 +1,19 @@
+################### RedShift #######################
+
+CREATE DATABASE `zhuanziban` DEFAULT CHARSET=utf8mb4;
+
+USE zhuanziban;
+
+CREATE TABLE zhuanziban.cinema(
+  id int8 identity(0, 1),
+  cinema_company varchar(50) DEFAULT NULL,
+  daily_box_office varchar(10) DEFAULT NULL,
+  action_cutting varchar(10) DEFAULT NULL,
+  daily_viewers varchar(10) DEFAULT NULL,
+  counter_sales varchar(10) DEFAULT NULL,
+  counter_sales_per varchar(10) DEFAULT NULL,
+  online_sales varchar(10) DEFAULT NULL,
+  online_sales_per varchar(10) DEFAULT NULL,
+  date varchar(10) DEFAULT NULL,
+  primary key(id)
+);
