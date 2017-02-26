@@ -1,4 +1,4 @@
-from palmutil.db_operation import BaseDB
+from scrapy_spiders.utils.db_operation import BaseDB
 # from palmutil.logger_util import JarvisLogger
 
 

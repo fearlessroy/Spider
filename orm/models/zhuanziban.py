@@ -2,14 +2,14 @@
 from sqlalchemy import Column, String, Integer
 from orm.models.base import Base
 
-SCHEMA = {"schema": "zhuanziban"}
+SCHEMA = {"schema": "scrapy-spider"}
 
 
 class ZhuanzibanCinema(Base):
     """
     ORM,one class in code is one table in database
     """
-    __tablename__ = 'cinema'
+    __tablename__ = 'zhuanziban_cinema'
     __table_args__ = SCHEMA
 
     id = Column(Integer, primary_key=True, info={"identity": (0, 1)})

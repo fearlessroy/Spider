@@ -2,7 +2,7 @@ CREATE DATABASE `zhuanziban` DEFAULT CHARSET=utf8mb4;
 
 USE zhuanziban;
 
-CREATE TABLE zhuanziban.cinema(
+CREATE TABLE scrapy-spider.zhuanziban_cinema(
   id int8 identity(0, 1),
   cinema_company varchar(50) DEFAULT NULL,
   daily_box_office varchar(10) DEFAULT NULL,
