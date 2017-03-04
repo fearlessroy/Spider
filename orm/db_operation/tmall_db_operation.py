@@ -1,7 +1,7 @@
 """
 This module handles tmall database operations.
 """
-from palmutil.db_operation import BaseDB
+from util.db_operation import BaseDB
 from orm.models.tmall import TmallProductInfo, TmallSalesInfo
 
 
