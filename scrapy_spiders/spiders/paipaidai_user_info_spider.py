@@ -5,8 +5,6 @@ from scrapy import Selector
 
 from scrapy_spiders.items.paipaidai_items import PaipaidaiUserInfo
 from my_scrapy_redis.spiders import RedisSpider
-# from palmutil.logger_util import JarvisLogger
-# from palmutil.time_util import get_current_timestamp_str
 
 
 class PaipaidaiUserinfoSpider(RedisSpider):
@@ -32,7 +30,6 @@ class PaipaidaiUserinfoSpider(RedisSpider):
 
     def __init__(self):
         super().__init__()
-        # self.jarvis_logger = JarvisLogger(filename="paipaidai_user_info_spider.log", level=logging.DEBUG)
 
     def parse(self, response):
         html = response.text
@@ -50,5 +47,4 @@ class PaipaidaiUserinfoSpider(RedisSpider):
             '/html/body/div[4]/div[2]/div[1]/ul/li[2]/p[2]/span/span/text()').extract_first()[:-2]
         userinfo['identity'] = selector.xpath('/html/body/div[4]/div[2]/div[1]/ul/li[3]/p[2]/text()').extract_first()[
                                5:].strip()
-        # userinfo['crawl_date'] = get_current_timestamp_str("Asia/Shanghai")
-        yield userinfo
+        print(userinfo)

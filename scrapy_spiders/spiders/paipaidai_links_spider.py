@@ -6,7 +6,6 @@ import time
 from scrapy import Spider, Request, Selector
 
 from scrapy_spiders.items.paipaidai_items import PaipaidaiLinkItem
-# from palmutil.logger_util import JarvisLogger
 
 
 class PaipaipaiLinksSpider(Spider):
@@ -40,7 +39,6 @@ class PaipaipaiLinksSpider(Spider):
 
     def __init__(self):
         super().__init__()
-        # self.jarvis_logger = JarvisLogger(filename="paipaidai_links_spider.log", level=logging.DEBUG)
 
     def parse(self, response):
         try:

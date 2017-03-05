@@ -3,12 +3,9 @@ import logging
 import re
 
 from scrapy import Spider, Selector, Request
-# from palmutil.logger_util import JarvisLogger
 from bs4 import BeautifulSoup
 from scrapy_spiders.items.paipaidai_items import PaipaidaiRainbowItem
 
-
-# from palmutil.time_util import get_current_timestamp_str
 
 
 class PaipaidaiRainbowPlanSpider(Spider):
@@ -26,7 +23,6 @@ class PaipaidaiRainbowPlanSpider(Spider):
 
     def __init__(self):
         super().__init__()
-        # self.jarvis_logger = JarvisLogger(filename="paipaidai_rainbow_plan_spider.log", level=logging.DEBUG)
 
     def parse(self, response):
         if response.status == 200:
@@ -66,6 +62,5 @@ class PaipaidaiRainbowPlanSpider(Spider):
             rainbowitem['income_date'] = selector.xpath(
                 '//*[@id="content_nav"]/div[1]/div[2]/div/div/div[2]/div[2]/span[2]/p/i/text()').extract_first().replace(
                 '投资收益日：', '')
-            # rainbowitem['crawl_date'] = get_current_timestamp_str("Asia/Shanghai")
             rainbowitem['source_url'] = response.url
-            yield rainbowitem
+            print(rainbowitem)

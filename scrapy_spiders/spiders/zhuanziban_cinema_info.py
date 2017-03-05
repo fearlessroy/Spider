@@ -48,4 +48,4 @@ class ZhuanzibanCinemaSpier(scrapy.Spider):
                     movie_item.xpath('table/tbody/tr[{0}]/td[5]/text()'.format(i)).extract_first().replace(',', ''))
                 item['online_sales_percent'] = movie_item.xpath(
                     'table/tbody/tr[{0}]/td[5]/i/text()'.format(i)).extract_first()
-                yield item
+                print(item)
