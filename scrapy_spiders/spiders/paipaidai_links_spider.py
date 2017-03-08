@@ -21,13 +21,9 @@ class PaipaipaiLinksSpider(Spider):
 
     custom_settings = {
         'SCHEDULER': "scrapy.core.scheduler.Scheduler",
-        'ITEM_PIPELINES': {
-            'crawler.pipelines.paipaidai_pipeline.PaipaidaiLinkPipeline': 400
-        },
         'DOWNLOADER_MIDDLEWARES': {
             'crawler.middlewares.middlewares.RandomUserAgent': 1,
             'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110,
-            'crawler.middlewares.middlewares.ProxyMiddleware': 100
         },
         'RETRY_TIMES': 3,
         'DOWNLOAD_DELAY': 5,

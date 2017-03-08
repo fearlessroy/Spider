@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
-
+import time
 from scrapy import Selector
 
 from scrapy_spiders.items.paipaidai_items import PaipaidaiUserInfo

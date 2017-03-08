@@ -13,9 +13,6 @@ class PaipaidaiRainbowPlanSpider(Spider):
     start_urls = ['http://invest.ppdai.com/product/rainbow']
     custom_settings = {
         'SCHEDULER': "scrapy.core.scheduler.Scheduler",
-        'ITEM_PIPELINES': {
-            'crawler.pipelines.paipaidai_pipeline.PaipaidaiRainbowPlanPipeline': 400
-        }
     }
 
     logging.getLogger('scrapy').setLevel(logging.DEBUG)
@@ -26,16 +23,13 @@ class PaipaidaiRainbowPlanSpider(Spider):
 
     def parse(self, response):
         if response.status == 200:
-            try:
-                soup = BeautifulSoup(response.text, 'lxml')
-                tags = soup.find_all('a')
-                for tag in tags:
-                    link = tag.get('href')
-                    if link and '/product/info' in link:
-                        url = '{0}{1}'.format('http://invest.ppdai.com', link.replace(';', '&'))
-                        yield Request(url=url, callback=self.parse_detail)
-            except Exception as e:
-                self.jarvis_logger.exception(e=e)
+            soup = BeautifulSoup(response.text, 'lxml')
+            tags = soup.find_all('a')
+            for tag in tags:
+                link = tag.get('href')
+                if link and '/product/info' in link:
+                    url = '{0}{1}'.format('http://invest.ppdai.com', link.replace(';', '&'))
+                    yield Request(url=url, callback=self.parse_detail)
 
     def parse_detail(self, response):
         if response.status == 200:

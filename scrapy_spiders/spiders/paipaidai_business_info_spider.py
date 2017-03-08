@@ -15,14 +15,6 @@ class PaipaidaiBusinessInfoSpider(Spider):
     start_urls = ['http://product.invest.ppdai.com/', 'http://invest.ppdai.com/product/rainbow',
                   'http://www.ppdai.com/', 'http://rise.invest.ppdai.com/#0']
 
-    #
-    # custom_settings = {
-    #     'SCHEDULER': "scrapy.core.scheduler.Scheduler",
-    #     'ITEM_PIPELINES': {
-    #         'crawler.pipelines.paipaidai_pipeline.PaipaidaiBusinessPipeline': 400
-    #     }
-    # }
-
     def parse(self, response):
         html = response.text
         selector = Selector(text=html)

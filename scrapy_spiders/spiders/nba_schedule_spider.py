@@ -40,4 +40,4 @@ class NBAScheduleSpider(Spider):
             nba_schedule_item["away_team_name"] = away_team_name
             nba_schedule_item["game_time"] = game_time
             nba_schedule_item["source_team_name"] = response.url.rsplit("/", 1)[-1]  # pass as ics filename
-            yield nba_schedule_item
+            print(nba_schedule_item)
