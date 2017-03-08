@@ -1,8 +1,7 @@
-from crawler.pipelines.base_pipeline import BasePipeline
 from orm.models.tmall import TmallProductInfo
 
 
-class TmallProductPipeline(BasePipeline):
+class TmallProductPipeline(object):
     def __init__(self):
         super().__init__(batch_process_number=100, use_mysql=True, jarvis_logger_filename="tmall_product_pipeline.log")
 

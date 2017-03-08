@@ -3,7 +3,7 @@ import datetime
 
 import scrapy
 from scrapy.selector import Selector
-
+import time
 from scrapy_spiders.items.zhuanziban_cinema_items import ZhuanzibanCinemaItem
 
 
@@ -18,7 +18,7 @@ class ZhuanzibanCinemaSpier(scrapy.Spider):
     custom_settings = {
         'SCHEDULER': "scrapy.core.scheduler.Scheduler",
         'ITEM_PIPELINES': {
-            'scrapy_spiders.pipelines.zhuanziban_info_redshift_pipeline.ZhuanzibanCinemaPipeline': 400
+            'scrapy_spiders.pipelines.zhuanziban_info_pipeline.ZhuanzibanCinemaPipeline': 400
         }
     }
 
@@ -48,4 +48,5 @@ class ZhuanzibanCinemaSpier(scrapy.Spider):
                     movie_item.xpath('table/tbody/tr[{0}]/td[5]/text()'.format(i)).extract_first().replace(',', ''))
                 item['online_sales_percent'] = movie_item.xpath(
                     'table/tbody/tr[{0}]/td[5]/i/text()'.format(i)).extract_first()
-                print(item)
+                item['date'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+                yield item

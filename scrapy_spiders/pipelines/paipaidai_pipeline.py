@@ -1,6 +1,4 @@
 from scrapy.utils.serialize import ScrapyJSONEncoder
-
-from scrapy_spiders.pipelines.base_pipeline import BasePipeline
 from my_scrapy_redis.pipelines import RedisPipeline
 from orm.models.paipaidai import PaipaidaiBusinessInfo, PaipaidaiPaihuobao, PaipaidaiRainbowInfo, PaipaidaiYueyuezhang, \
     PaipaidaiRainbowPlan, PaipaidaiUserinfo, PaipaidaiLoanInfo
@@ -8,7 +6,7 @@ from orm.models.paipaidai import PaipaidaiBusinessInfo, PaipaidaiPaihuobao, Paip
 default_serialize = ScrapyJSONEncoder().encode
 
 
-class PaipaidaiBusinessPipeline(BasePipeline):
+class PaipaidaiBusinessPipeline():
     def __init__(self):
         super().__init__(batch_process_number=10, use_mysql=True,
                          jarvis_logger_filename="paipaidai_business_pipeline.log")
