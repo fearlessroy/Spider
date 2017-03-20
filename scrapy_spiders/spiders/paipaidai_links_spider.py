@@ -63,7 +63,7 @@ class PaipaipaiLinksSpider(Spider):
                 else:
                     yield Request(url=response.url, callback=self.parse_deb)
         except Exception as e:
-            self.jarvis_logger.exception(e=e)
+            self.logger.exception(e=e)
 
     def parse_loan(self, response):
         for item in response.css('ol.clearfix'):
