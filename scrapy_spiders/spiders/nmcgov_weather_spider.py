@@ -21,7 +21,7 @@ class NmcgovWeatherSpider(Spider):
     custom_settings = {
         'SCHEDULER': "scrapy.core.scheduler.Scheduler",
         'ITEM_PIPELINES': {
-            'weather_spider.pipelines.nmcgov_weather_pipeline.NmcgovWeatherPipeline': 400
+            'scrapy_spiders.pipelines.nmcgov_weather_pipeline.NmcgovWeatherPipeline': 400
         },
     }
 
