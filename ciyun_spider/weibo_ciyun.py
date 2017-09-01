@@ -67,7 +67,8 @@ def fetch_data(uid=None, container_id=None):
                 text = clean_html(text)
                 blogs.append(text)
         page += 1
-        print '抓取第%d页，目前总共抓取了%d条微薄' % (page, len(blogs))
+        print
+        '抓取第%d页，目前总共抓取了%d条微薄' % (page, len(blogs))
 
         with codecs.open('weibo1.txt', 'w', encoding='utf-8') as f:
             f.write('\n'.join(blogs))
