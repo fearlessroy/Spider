@@ -54,7 +54,7 @@ def fetch_data(uid=None, container_id=None):
     page = 0
     total = 960
     blogs = []
-    for i in range(0, total / 10):
+    for i in range(0, total // 10):
         params['uid'] = uid
         params['page'] = str(page)
         params['containerid'] = container_id
@@ -67,8 +67,7 @@ def fetch_data(uid=None, container_id=None):
                 text = clean_html(text)
                 blogs.append(text)
         page += 1
-        print
-        '抓取第%d页，目前总共抓取了%d条微薄' % (page, len(blogs))
+        print('抓取第%d页，目前总共抓取了%d条微薄' % (page, len(blogs)))
 
         with codecs.open('weibo1.txt', 'w', encoding='utf-8') as f:
             f.write('\n'.join(blogs))
