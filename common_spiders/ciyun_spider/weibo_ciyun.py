@@ -10,7 +10,7 @@ from wordcloud import WordCloud
 
 headers = {
     'Host': 'm.weibo.cn',
-    'Referer': 'https://m.weibo.cn/u/2350042112',
+    'Referer': 'https://m.weibo.cn/u/xxxxxxxxx',  # 个人uid
     'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
 }
 
@@ -19,7 +19,7 @@ https://m.weibo.cn/api/container/getIndex?uid=2350042112&luicode=10000011&
 lfid=100103type%3D3%26q%3D%E4%B8%8D%E7%9D%A1%E4%B8%8D%E7%9D%A1%E5%B0%B1%E4%B8%8D%E7%9D%A1l&type=uid&value=2350042112&
 containerid=1076032350042112
 
-uid=2350042112&
+uid=xxxxxxxxx
 luicode=10000011&
 lfid=100103type%3D3%26q%3D%E4%B8%8D%E7%9D%A1%E4%B8%8D%E7%9D%A1%E5%B0%B1%E4%B8%8D%E7%9D%A1l&
 type=uid&
@@ -55,7 +55,7 @@ def fetch_data(uid=None, container_id=None):
     :return: 抓取数据,并保存在csv文件
     '''
     page = 0
-    total = 203
+    total = 203  # 根据api total字段而来
     blogs = []
     for i in range(0, total // 10):
         params['uid'] = uid
@@ -89,18 +89,18 @@ def generate_image():
         for text in f.readlines():
             data.extend(jieba.analyse.extract_tags(text, topK=20))
         data = ' '.join(data)
-        mask_img = imread('52f90c9a5131c.jpg', flatten=True)
+        mask_img = imread('xxxxx.jpg', flatten=True)  # 设置图片
 
-        wordcloud = WordCloud(font_path='MSYH.TTC',
+        wordcloud = WordCloud(font_path='MSYH.TTC',  # 支持中文的字体，默认字体无法支持中文，导致生成词云全部为方框
                               background_color='white',
                               mask=mask_img).generate(data)
 
         plt.imshow(wordcloud.recolor(color_func=grey_color_func, random_state=3),
                    interpolation='bilinear')
         plt.axis('off')
-        plt.savefig('./heart.jpg', dpi=1600)
+        plt.savefig('heart1.jpg', dpi=1600)
 
 
 if __name__ == "__main__":
-    # fetch_data('2350042112', '1076032350042112')
+    # fetch_data('2350042xxx', '1076032350042112')
     generate_image()
