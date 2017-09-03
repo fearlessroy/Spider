@@ -87,18 +87,18 @@ def generate_image():
 
     with codecs.open('weibo1.txt', 'r', encoding="utf-8") as f:
         for text in f.readlines():
-            data.extend(jieba.analyse.extract_tags(text, topK=20))
+            data.extend(jieba.analyse.extract_tags(text, topK=20))  # 关键字提取
         data = ' '.join(data)
-        mask_img = imread('xxxxx.jpg', flatten=True)  # 设置图片
+        mask_img = imread('xxxxx.jpg', flatten=True)  # imread接收图片的完整路径为参数，也可以是文件指针，返回numpy.ndarray类型的矩阵
 
         wordcloud = WordCloud(font_path='MSYH.TTC',  # 支持中文的字体，默认字体无法支持中文，导致生成词云全部为方框
-                              background_color='white',
-                              mask=mask_img).generate(data)
+                              background_color='white',  # Background color for the word cloud image
+                              mask=mask_img).generate(data)  # mask : nd-array or None (default=None)
 
         plt.imshow(wordcloud.recolor(color_func=grey_color_func, random_state=3),
-                   interpolation='bilinear')
+                   interpolation='bilinear')  # 双线性的
         plt.axis('off')
-        plt.savefig('heart1.jpg', dpi=1600)
+        plt.savefig('heart.jpg', dpi=1600)  # dpi 每英寸点数
 
 
 if __name__ == "__main__":
