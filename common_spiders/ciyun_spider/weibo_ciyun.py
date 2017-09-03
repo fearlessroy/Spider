@@ -10,18 +10,21 @@ from wordcloud import WordCloud
 
 headers = {
     'Host': 'm.weibo.cn',
-    'Referer': 'https://m.weibo.cn/u/2350042112',  # 3008199124,2350042112,1768637412
+    'Referer': 'https://m.weibo.cn/u/2350042112',
     'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
 }
 
 '''
-https://m.weibo.cn/api/container/getIndex?uid=1768637412&luicode=10000012&lfid=1005052644198921_-_FOLLOWERS&
-featurecode=20000320&type=uid&value=1768637412&containerid=1076031768637412
+https://m.weibo.cn/api/container/getIndex?uid=2350042112&luicode=10000011&
+lfid=100103type%3D3%26q%3D%E4%B8%8D%E7%9D%A1%E4%B8%8D%E7%9D%A1%E5%B0%B1%E4%B8%8D%E7%9D%A1l&type=uid&value=2350042112&
+containerid=1076032350042112
 
-https://m.weibo.cn/api/container/getIndex?type=uid&value=3008199124&containerid=1005053008199124
-https://m.weibo.cn/api/container/getIndex?type=uid&value=3008199124&containerid=1076033008199124
-
-https://m.weibo.cn/api/container/getIndex?type=uid&value=2350042112&containerid=1005052350042112
+uid=2350042112&
+luicode=10000011&
+lfid=100103type%3D3%26q%3D%E4%B8%8D%E7%9D%A1%E4%B8%8D%E7%9D%A1%E5%B0%B1%E4%B8%8D%E7%9D%A1l&
+type=uid&
+value=2350042112&
+containerid=1076032350042112
 '''
 
 
@@ -35,10 +38,10 @@ url = 'https://m.weibo.cn/api/container/getIndex'
 
 params = {
     'uid': '{uid}',
-    'luicode': '10000012',
-    'featurecode': '20000320',
+    'luicode': '10000011',
+    # 'featurecode': '20000320',
     'type': 'uid',
-    'value': '1005052350042112',
+    'value': '2350042112',
     'containerid': '{containerid}',
     'page': '{page}'
 }
@@ -52,7 +55,7 @@ def fetch_data(uid=None, container_id=None):
     :return: 抓取数据,并保存在csv文件
     '''
     page = 0
-    total = 960
+    total = 203
     blogs = []
     for i in range(0, total // 10):
         params['uid'] = uid
@@ -80,15 +83,15 @@ def grey_color_func(word, font_size, position, orientation, random_state=None, *
 
 def generate_image():
     data = []
-    jieba.analyse.set_stop_words("./stopwords.txt")
+    jieba.analyse.set_stop_words("stopwords.txt")
 
     with codecs.open('weibo1.txt', 'r', encoding="utf-8") as f:
         for text in f.readlines():
             data.extend(jieba.analyse.extract_tags(text, topK=20))
-        data = ''.join(data)
-        mask_img = imread('./52f90c9a5131c.jpg', flatten=True)
+        data = ' '.join(data)
+        mask_img = imread('52f90c9a5131c.jpg', flatten=True)
 
-        wordcloud = WordCloud(font_path='./MSYH.TTC',
+        wordcloud = WordCloud(font_path='MSYH.TTC',
                               background_color='white',
                               mask=mask_img).generate(data)
 
@@ -99,5 +102,5 @@ def generate_image():
 
 
 if __name__ == "__main__":
-    fetch_data('2350042112', '1005052350042112')
+    # fetch_data('2350042112', '1076032350042112')
     generate_image()
