@@ -4,11 +4,11 @@ import datetime
 import scrapy
 from scrapy.selector import Selector
 import time
-from scrapy_spiders.items.zhuanziban_cinema_items import ZhuanzibanCinemaItem
+from scrapy_spiders.items.cinema_items import CinemaItem
 
 
 class ZhuanzibanCinemaSpier(scrapy.Spider):
-    name = 'zhuanziban_cinema'
+    name = 'cinema'
     allowed_domains = ['http://111.205.151.7/cine_groups/']
     # start_urls = ['http://111.205.151.7/cine_groups/{0}-{1}-{2}'.format(datetime.datetime.now().year,
     #                                                                     datetime.datetime.now().month,
@@ -18,7 +18,7 @@ class ZhuanzibanCinemaSpier(scrapy.Spider):
     custom_settings = {
         'SCHEDULER': "scrapy.core.scheduler.Scheduler",
         'ITEM_PIPELINES': {
-            'scrapy_spiders.pipelines.zhuanziban_info_pipeline.ZhuanzibanCinemaPipeline': 400
+            'scrapy_spiders.pipelines.cinema_info_pipeline.CinemaPipeline': 400
         }
     }
 
@@ -28,7 +28,7 @@ class ZhuanzibanCinemaSpier(scrapy.Spider):
         movie_group = selector.xpath('//html/body/div')
         for movie_item in movie_group:
             for i in range(1, 11):  # Information in a table with ten rows.
-                item = ZhuanzibanCinemaItem()
+                item = CinemaItem()
                 item['date'] = movie_group.xpath(
                     'div[1]/header/a[2]/span[1]/text()').extract_first()
                 item['cinema_company'] = movie_item.xpath('table/tbody/tr[{0}]/td[1]/text()'.format(i)).extract_first()

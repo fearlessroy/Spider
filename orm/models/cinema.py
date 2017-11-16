@@ -5,11 +5,11 @@ from orm.models.base import Base
 SCHEMA = {"schema": "scrapy-spider"}
 
 
-class ZhuanzibanCinema(Base):
+class Cinema(Base):
     """
     ORM,one class in code is one table in database
     """
-    __tablename__ = 'zhuanziban_cinema'
+    __tablename__ = 'cinema'
     __table_args__ = SCHEMA
 
     id = Column(Integer, primary_key=True, info={"identity": (0, 1)})

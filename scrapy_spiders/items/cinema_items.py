@@ -8,7 +8,7 @@
 import scrapy
 
 
-class ZhuanzibanCinemaItem(scrapy.Item):
+class CinemaItem(scrapy.Item):
     date = scrapy.Field()
     cinema_company = scrapy.Field()
     daily_box_office = scrapy.Field()

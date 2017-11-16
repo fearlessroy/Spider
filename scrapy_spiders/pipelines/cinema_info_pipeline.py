@@ -1,14 +1,14 @@
-from orm.models.zhuanziban import ZhuanzibanCinema
+from orm.models.cinema import Cinema
 from orm.models.base import DBSession
 
 
-class ZhuanzibanCinemaPipeline(object):
+class CinemaPipeline(object):
     def __init__(self):
         self.session = DBSession()
         self.batch = []
 
     def process_item(self, item, spider):
-        cinemaitem = ZhuanzibanCinema(**item)
+        cinemaitem = Cinema(**item)
         self.batch.append(cinemaitem)
 
     def close_spider(self, spider):
