@@ -8,8 +8,8 @@ from scrapy_spiders.items.loansite_items import LoansiteRainbowItem
 
 
 
-class PaipaidaiRainbowPlanSpider(Spider):
-    name = 'paipaidai_rainbow_plan'
+class LoansiteRainbowPlanSpider(Spider):
+    name = 'loansite_rainbow_plan'
     start_urls = ['http://invest.ppdai.com/product/rainbow']
     custom_settings = {
         'SCHEDULER': "scrapy.core.scheduler.Scheduler",

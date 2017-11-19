@@ -7,13 +7,12 @@ from scrapy_spiders.items.loansite_items import LoansiteBusinessItems, LoansiteR
     LoansiteYueuezhangInfo
 
 
-# from palmutil.time_util import get_current_timestamp_str
-
-
-class PaipaidaiBusinessInfoSpider(Spider):
-    name = "paipaidai_business"
-    start_urls = ['http://product.invest.ppdai.com/', 'http://invest.ppdai.com/product/rainbow',
-                  'http://www.ppdai.com/', 'http://rise.invest.ppdai.com/#0']
+class LoansiteBusinessInfoSpider(Spider):
+    name = "loansite_business"
+    start_urls = ['http://product.invest.ppdai.com/',
+                  'http://invest.ppdai.com/product/rainbow',
+                  'http://www.ppdai.com/', 'http://rise.invest.ppdai.com/#0'
+                  ]
 
     def parse(self, response):
         html = response.text
@@ -34,46 +33,46 @@ class PaipaidaiBusinessInfoSpider(Spider):
                     ',', '').strip())
             print(paihuobaoinfo)
         elif "rainbow" in response.url:
-            paipaidairainbowinfo = LoansiteRainbowInfo()
-            paipaidairainbowinfo['rainbow_invest_count'] = int(
+            loansiterainbowinfo = LoansiteRainbowInfo()
+            loansiterainbowinfo['rainbow_invest_count'] = int(
                 selector.xpath('//*[@id="r1"]/text()').extract_first().replace(',', ''))
-            paipaidairainbowinfo['rainbow_service_users'] = int(
+            loansiterainbowinfo['rainbow_service_users'] = int(
                 selector.xpath('//*[@id="r2"]/text()').extract_first().replace(',', ''))
-            paipaidairainbowinfo['rainbow_profit'] = int(
+            loansiterainbowinfo['rainbow_profit'] = int(
                 selector.xpath('//*[@id="r3"]/text()').extract_first().replace(',', ''))
-            print(paipaidairainbowinfo)
+            print(loansiterainbowinfo)
         elif "rise" in response.url:
-            paipaidaiyueyuezhang = LoansiteYueuezhangInfo()
-            paipaidaiyueyuezhang['yueyuezhang_phase'] = selector.xpath(
+            loansiteyueyuezhang = LoansiteYueuezhangInfo()
+            loansiteyueyuezhang['yueyuezhang_phase'] = selector.xpath(
                 '/html/body/div[3]/div[1]/div[1]/div/div/p/span[2]/text()').extract_first()
-            paipaidaiyueyuezhang['annualized_rate_of_return'] = selector.xpath(
+            loansiteyueyuezhang['annualized_rate_of_return'] = selector.xpath(
                 '/html/body/div[3]/div[1]/div[1]/div/div/div[1]/div[1]/p[1]/span[1]/text()').extract_first() + selector.xpath(
                 '/html/body/div[3]/div[1]/div[1]/div/div/div[1]/div[1]/p[1]/span[2]/text()').extract_first() + '%'
-            paipaidaiyueyuezhang['invest_term'] = selector.xpath(
+            loansiteyueyuezhang['invest_term'] = selector.xpath(
                 '/html/body/div[3]/div[1]/div[1]/div/div/div[1]/div[2]/p[1]/span/text()').extract_first() + '个月'
-            paipaidaiyueyuezhang['total_amount'] = float(selector.xpath(
+            loansiteyueyuezhang['total_amount'] = float(selector.xpath(
                 '/html/body/div[3]/div[1]/div[1]/div/div/div[1]/div[3]/p[1]/span/text()').extract_first())
-            paipaidaiyueyuezhang['remain_amount_cast'] = float(
+            loansiteyueyuezhang['remain_amount_cast'] = float(
                 selector.xpath('//*[@id="remainingAmount"]/text()').extract_first())
-            paipaidaiyueyuezhang['purchase_limit'] = float(
+            loansiteyueyuezhang['purchase_limit'] = float(
                 selector.xpath('//*[@id="formBuy"]/div/p[2]/span/b/text()').extract_first())
-            paipaidaiyueyuezhang['aucumulated_investment'] = float(
+            loansiteyueyuezhang['aucumulated_investment'] = float(
                 selector.xpath('/html/body/div[3]/div[1]/div[2]/div/div[1]/p/span/text()').extract_first().replace('¥',
                                                                                                                    ''))
-            paipaidaiyueyuezhang['total_invest_users'] = int(
+            loansiteyueyuezhang['total_invest_users'] = int(
                 selector.xpath('/html/body/div[3]/div[1]/div[2]/div/div[2]/p/span/text()').extract_first())
-            paipaidaiyueyuezhang['aucumulated_profit'] = float(
+            loansiteyueyuezhang['aucumulated_profit'] = float(
                 selector.xpath('/html/body/div[3]/div[1]/div[2]/div/div[3]/p/span/text()').extract_first().replace('¥',
                                                                                                                    ''))
-            print(paipaidaiyueyuezhang)
+            print(loansiteyueyuezhang)
         else:
-            paipaidai_business_item = LoansiteBusinessItems()
-            paipaidai_business_item['userscount'] = int(selector.xpath(
+            loansite_business_item = LoansiteBusinessItems()
+            loansite_business_item['userscount'] = int(selector.xpath(
                 '/html/body/div[3]/div[1]/div[2]/div[1]/div/div/div[1]/p[1]/text()').extract_first().replace(',', ''))
-            paipaidai_business_item['loanamount'] = int(selector.xpath(
+            loansite_business_item['loanamount'] = int(selector.xpath(
                 '/html/body/div[3]/div[1]/div[2]/div[1]/div/div/div[2]/p[1]/text()').extract_first().replace(',', ''))
-            paipaidai_business_item['dealvolume'] = int(float(selector.xpath(
+            loansite_business_item['dealvolume'] = int(float(selector.xpath(
                 '/html/body/div[3]/div[1]/div[2]/div[1]/div/div/div[2]/p[3]/text()').extract_first().replace(',',
                                                                                                              '').replace(
                 '万', '')) * 10000)
-            print(paipaidai_business_item)
+            print(loansite_business_item)

@@ -7,7 +7,7 @@ from scrapy_spiders.items.qiushibaike_items import QiushibaikeItem
 from bs4 import BeautifulSoup
 
 
-class ZhuanzibanCinemaSpier(scrapy.Spider):
+class QiushibaikeSpier(scrapy.Spider):
     name = 'qiushibaike'
     allowed_domains = ['https://www.qiushibaike.com/']
     start_urls = ['https://www.qiushibaike.com/']

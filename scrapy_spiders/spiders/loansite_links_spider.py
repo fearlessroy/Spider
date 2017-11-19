@@ -8,8 +8,8 @@ from scrapy import Spider, Request, Selector
 from scrapy_spiders.items.loansite_items import LoansiteLinkItem
 
 
-class PaipaipaiLinksSpider(Spider):
-    name = 'paipaidai_links'
+class LoansiteLinksSpider(Spider):
+    name = 'loansite_links'
     start_urls = [
         'http://invest.ppdai.com/loan/listnew?LoanCategoryId=8&SortType=0&PageIndex=1&MinAmount=0&MaxAmount=0',
         'http://invest.ppdai.com/loan/listnew?LoanCategoryId=5&SortType=0&PageIndex=1&MinAmount=0&MaxAmount=0',
@@ -67,14 +67,14 @@ class PaipaipaiLinksSpider(Spider):
 
     def parse_loan(self, response):
         for item in response.css('ol.clearfix'):
-            paipaidai_links = LoansiteLinkItem()
-            paipaidai_links['user_info'] = item.xpath('li/div[2]/p/a/@href').extract_first()
-            paipaidai_links['loan_info'] = item.xpath('li/div[2]/a/@href').extract_first()
-            yield paipaidai_links
+            loansite_links = LoansiteLinkItem()
+            loansite_links['user_info'] = item.xpath('li/div[2]/p/a/@href').extract_first()
+            loansite_links['loan_info'] = item.xpath('li/div[2]/a/@href').extract_first()
+            yield loansite_links
 
     def parse_deb(self, response):
         for item in response.css('li.subli '):
-            paipaidai_links = LoansiteLinkItem()
-            paipaidai_links['user_info'] = ''
-            paipaidai_links['loan_info'] = 'http://invest.ppdai.com' + item.xpath('div/a/@href').extract_first()
-            yield paipaidai_links
+            loansite_links = LoansiteLinkItem()
+            loansite_links['user_info'] = ''
+            loansite_links['loan_info'] = 'http://invest.ppdai.com' + item.xpath('div/a/@href').extract_first()
+            yield loansite_links

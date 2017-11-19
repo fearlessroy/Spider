@@ -7,7 +7,7 @@ import time
 from scrapy_spiders.items.cinema_items import CinemaItem
 
 
-class ZhuanzibanCinemaSpier(scrapy.Spider):
+class CinemaSpier(scrapy.Spider):
     name = 'cinema'
     allowed_domains = ['http://111.205.151.7/cine_groups/']
     # start_urls = ['http://111.205.151.7/cine_groups/{0}-{1}-{2}'.format(datetime.datetime.now().year,
