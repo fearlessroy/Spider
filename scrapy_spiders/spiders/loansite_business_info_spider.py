@@ -3,8 +3,8 @@
 from scrapy import Spider
 from scrapy.selector import Selector
 
-from scrapy_spiders.items.paipaidai_items import PaipaidaiBusinessItems, PaipaidaiRainbowInfo, PaipaidaiPaihuobaoInfo, \
-    PaipaidaiYueuezhangInfo
+from scrapy_spiders.items.loansite_items import LoansiteBusinessItems, LoansiteRainbowInfo, LoansitePaihuobaoInfo, \
+    LoansiteYueuezhangInfo
 
 
 # from palmutil.time_util import get_current_timestamp_str
@@ -19,7 +19,7 @@ class PaipaidaiBusinessInfoSpider(Spider):
         html = response.text
         selector = Selector(text=html)
         if "product.invest" in response.url:
-            paihuobaoinfo = PaipaidaiPaihuobaoInfo()
+            paihuobaoinfo = LoansitePaihuobaoInfo()
             paihuobaoinfo['annualized_rate_of_return'] = selector.xpath(
                 '/html/body/div[3]/div[1]/div[1]/div/div[1]/p[3]/text()').extract_first()
             paihuobaoinfo['aucumulated_investment'] = int(
@@ -34,7 +34,7 @@ class PaipaidaiBusinessInfoSpider(Spider):
                     ',', '').strip())
             print(paihuobaoinfo)
         elif "rainbow" in response.url:
-            paipaidairainbowinfo = PaipaidaiRainbowInfo()
+            paipaidairainbowinfo = LoansiteRainbowInfo()
             paipaidairainbowinfo['rainbow_invest_count'] = int(
                 selector.xpath('//*[@id="r1"]/text()').extract_first().replace(',', ''))
             paipaidairainbowinfo['rainbow_service_users'] = int(
@@ -43,7 +43,7 @@ class PaipaidaiBusinessInfoSpider(Spider):
                 selector.xpath('//*[@id="r3"]/text()').extract_first().replace(',', ''))
             print(paipaidairainbowinfo)
         elif "rise" in response.url:
-            paipaidaiyueyuezhang = PaipaidaiYueuezhangInfo()
+            paipaidaiyueyuezhang = LoansiteYueuezhangInfo()
             paipaidaiyueyuezhang['yueyuezhang_phase'] = selector.xpath(
                 '/html/body/div[3]/div[1]/div[1]/div/div/p/span[2]/text()').extract_first()
             paipaidaiyueyuezhang['annualized_rate_of_return'] = selector.xpath(
@@ -67,7 +67,7 @@ class PaipaidaiBusinessInfoSpider(Spider):
                                                                                                                    ''))
             print(paipaidaiyueyuezhang)
         else:
-            paipaidai_business_item = PaipaidaiBusinessItems()
+            paipaidai_business_item = LoansiteBusinessItems()
             paipaidai_business_item['userscount'] = int(selector.xpath(
                 '/html/body/div[3]/div[1]/div[2]/div[1]/div/div/div[1]/p[1]/text()').extract_first().replace(',', ''))
             paipaidai_business_item['loanamount'] = int(selector.xpath(

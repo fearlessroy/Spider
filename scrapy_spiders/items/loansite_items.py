@@ -9,24 +9,24 @@ aucumulated_profit：累计已赚
 """
 
 
-class PaipaidaiBaseItem(scrapy.Item):
+class LoansiteBaseItem(scrapy.Item):
     crawl_date = scrapy.Field()
     process_date = scrapy.Field()
 
 
-class PaipaidaiBusinessItems(PaipaidaiBaseItem):
+class LoansiteBusinessItems(LoansiteBaseItem):
     userscount = scrapy.Field()
     loanamount = scrapy.Field()
     dealvolume = scrapy.Field()
 
 
-class PaipaidaiRainbowInfo(PaipaidaiBaseItem):
+class LoansiteRainbowInfo(LoansiteBaseItem):
     rainbow_invest_count = scrapy.Field()
     rainbow_service_users = scrapy.Field()
     rainbow_profit = scrapy.Field()
 
 
-class PaipaidaiYueuezhangInfo(PaipaidaiBaseItem):
+class LoansiteYueuezhangInfo(LoansiteBaseItem):
     yueyuezhang_phase = scrapy.Field()
     annualized_rate_of_return = scrapy.Field()
     invest_term = scrapy.Field()
@@ -38,14 +38,14 @@ class PaipaidaiYueuezhangInfo(PaipaidaiBaseItem):
     aucumulated_profit = scrapy.Field()
 
 
-class PaipaidaiPaihuobaoInfo(PaipaidaiBaseItem):
+class LoansitePaihuobaoInfo(LoansiteBaseItem):
     annualized_rate_of_return = scrapy.Field()
     aucumulated_investment = scrapy.Field()
     total_invest_users = scrapy.Field()
     aucumulated_profit = scrapy.Field()
 
 
-class PaipaidaiRainbowItem(PaipaidaiBaseItem):
+class LoansiteRainbowItem(LoansiteBaseItem):
     plan_id = scrapy.Field()
     annualized_rate_of_return = scrapy.Field()
     invest_term = scrapy.Field()
@@ -57,12 +57,12 @@ class PaipaidaiRainbowItem(PaipaidaiBaseItem):
     source_url = scrapy.Field()
 
 
-class PaipaidaiLinkItem(PaipaidaiBaseItem):
+class LoansiteLinkItem(LoansiteBaseItem):
     user_info = scrapy.Field()
     loan_info = scrapy.Field()
 
 
-class PaipaidaiUserInfo(PaipaidaiBaseItem):
+class LoansiteUserInfo(LoansiteBaseItem):
     user_name = scrapy.Field()
     user_sex = scrapy.Field()
     user_age = scrapy.Field()
@@ -71,7 +71,7 @@ class PaipaidaiUserInfo(PaipaidaiBaseItem):
     identity = scrapy.Field()
 
 
-class PaipaidaiLoanInfo(PaipaidaiBaseItem):
+class LoansiteLoanInfo(LoansiteBaseItem):
     user_name = scrapy.Field()
     successful_times = scrapy.Field()
     failed_times = scrapy.Field()

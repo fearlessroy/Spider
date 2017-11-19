@@ -4,7 +4,7 @@ import re
 
 from scrapy import Spider, Selector, Request
 from bs4 import BeautifulSoup
-from scrapy_spiders.items.paipaidai_items import PaipaidaiRainbowItem
+from scrapy_spiders.items.loansite_items import LoansiteRainbowItem
 
 
 
@@ -35,7 +35,7 @@ class PaipaidaiRainbowPlanSpider(Spider):
         if response.status == 200:
             html = response.text
             selector = Selector(text=html)
-            rainbowitem = PaipaidaiRainbowItem()
+            rainbowitem = LoansiteRainbowItem()
             rainbowitem['plan_id'] = int(re.search(r'id=(\d+)', response.url).group(1))
             rainbowitem['annualized_rate_of_return'] = selector.xpath('//*[@id="theRate"]/text()').extract_first() + '%'
             rainbowitem['invest_term'] = selector.xpath('//*[@id="theMonth"]/text()').extract_first() + '个月'

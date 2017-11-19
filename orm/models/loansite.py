@@ -3,10 +3,10 @@ from sqlalchemy import Column, Integer, DateTime, BigInteger, String, Float
 
 from orm.models.base import Base
 
-SCHEMA = {"schema": "paipaidai"}
+SCHEMA = {"schema": "loan_site"}
 
 
-class PaipaidaiBusinessInfo(Base):
+class LoanBusinessInfo(Base):
     """
     ORM,one class in code is one table in database
     """
@@ -20,7 +20,7 @@ class PaipaidaiBusinessInfo(Base):
     crawl_date = Column(DateTime)
 
 
-class PaipaidaiPaihuobao(Base):
+class LoansitePaihuobao(Base):
     __tablename__ = 'paihuobao'
     __table_args__ = SCHEMA
 
@@ -32,7 +32,7 @@ class PaipaidaiPaihuobao(Base):
     crawl_date = Column(DateTime)
 
 
-class PaipaidaiRainbowInfo(Base):
+class LoansiteRainbowInfo(Base):
     __tablename__ = 'rainbowinfo'
     __table_args__ = SCHEMA
 
@@ -43,7 +43,7 @@ class PaipaidaiRainbowInfo(Base):
     crawl_date = Column(DateTime)
 
 
-class PaipaidaiYueyuezhang(Base):
+class LoansiteYueyuezhang(Base):
     __tablename__ = 'yueyuezhang'
     __table_args__ = SCHEMA
 
@@ -60,7 +60,7 @@ class PaipaidaiYueyuezhang(Base):
     crawl_date = Column(DateTime)
 
 
-class PaipaidaiRainbowPlan(Base):
+class LoansiteRainbowPlan(Base):
     __tablename__ = 'rainbowplan'
     __table_args__ = SCHEMA
 
@@ -76,7 +76,7 @@ class PaipaidaiRainbowPlan(Base):
     source_url = Column(String)
 
 
-class PaipaidaiUserinfo(Base):
+class LoansiteUserinfo(Base):
     __tablename__ = 'userinfo'
     __table_args__ = SCHEMA
 
@@ -90,7 +90,7 @@ class PaipaidaiUserinfo(Base):
     crawl_date = Column(DateTime)
 
 
-class PaipaidaiLoanInfo(Base):
+class LoansiteLoanInfo(Base):
     __tablename__ = 'loaninfo'
     __table_args__ = SCHEMA
 

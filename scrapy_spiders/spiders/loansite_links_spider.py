@@ -5,7 +5,7 @@ import time
 
 from scrapy import Spider, Request, Selector
 
-from scrapy_spiders.items.paipaidai_items import PaipaidaiLinkItem
+from scrapy_spiders.items.loansite_items import LoansiteLinkItem
 
 
 class PaipaipaiLinksSpider(Spider):
@@ -67,14 +67,14 @@ class PaipaipaiLinksSpider(Spider):
 
     def parse_loan(self, response):
         for item in response.css('ol.clearfix'):
-            paipaidai_links = PaipaidaiLinkItem()
+            paipaidai_links = LoansiteLinkItem()
             paipaidai_links['user_info'] = item.xpath('li/div[2]/p/a/@href').extract_first()
             paipaidai_links['loan_info'] = item.xpath('li/div[2]/a/@href').extract_first()
             yield paipaidai_links
 
     def parse_deb(self, response):
         for item in response.css('li.subli '):
-            paipaidai_links = PaipaidaiLinkItem()
+            paipaidai_links = LoansiteLinkItem()
             paipaidai_links['user_info'] = ''
             paipaidai_links['loan_info'] = 'http://invest.ppdai.com' + item.xpath('div/a/@href').extract_first()
             yield paipaidai_links
