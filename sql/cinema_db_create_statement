@@ -1,6 +1,6 @@
 CREATE DATABASE `cinema` DEFAULT CHARSET=utf8mb4;
 
-USE zhuanziban;
+USE cinema;
 
 CREATE TABLE scrapy-spider.cinema(
   id int8 identity(0, 1),
