@@ -24,8 +24,7 @@ class DoubanSpider(object):
         self.cur_url = 'https://movie.douban.com/top250?start={page}&&filter='
         self.movie_data = []
         self.top_num = 1
-        print
-        "...准备爬去豆瓣电影数据..."
+        print("...准备爬去豆瓣电影数据...")
 
     # 获取网页信息
     def get_page(self, cur_page):
@@ -63,10 +62,8 @@ def domain():
     my_spider.start_spider()
     for item1 in my_spider.movie_data:
         for item2 in item1:
-            print
-            item2
-    print
-    '...豆瓣爬虫爬取结束...'
+            print(item2)
+    print('...豆瓣爬虫爬取结束...')
 
 
 if __name__ == "__main__":
