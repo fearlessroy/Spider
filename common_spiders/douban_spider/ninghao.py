@@ -8,7 +8,7 @@ import csv
 path = "/usr/local/bin/chromedriver"
 driver = webdriver.Chrome(path)
 # 设置想要下载的导演、数据集
-director = '宁浩'
+director = '冯小刚'
 # 写 csv 文件
 file_name = '/Users/wangyunfei/Desktop/Data/' + director + '.csv'
 base_url = 'https://movie.douban.com/subject_search?search_text=' + director + '&cat=1002&start='
@@ -70,3 +70,4 @@ while start < 10000:  # 最多抽取 1 万部电影
 
 out.close()
 print('finished')
+driver.close()
