@@ -12,6 +12,7 @@ from wordcloud import WordCloud
 歌词 api: http://music.163.com/api/song/lyric?os=pc&id=536099160&lv=-1&kv=-1&tv=-1
 歌手 api: https://music.163.com/artist?id=12138269
 歌单 api: http://music.163.com/api/playlist/detail?id=753776811
+歌曲 api：http://music.163.com/api/song/detail/?ids=[569213220,569213221,569213222]
 '''
 
 headers = {
